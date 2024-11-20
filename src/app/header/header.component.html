@@ -1,0 +1,137 @@
+<div [ngClass]="{ back: hero }">
+  <div class="container mx-auto pb-12 sm:pb-14 md:pb-24">
+    <div class="flex justify-between flex-wrap items-center">
+      <img
+        routerLink="/"
+        src="../../assets/logo-270-80 1.svg"
+        alt="logo"
+        class="sm:p-2"
+      />
+      <div class="hamburger" (click)="[(hamburgerOpen = !hamburgerOpen)]">
+        <div
+          class="w-7 shadow shadow-white bg-gray-600 h-0.5 rounded-md origin-center ease-in-out transition duration-300"
+          [ngClass]="{ 'rotate-45': hamburgerOpen }"
+        ></div>
+        <div
+          class="w-7 shadow shadow-white bg-gray-600 h-0.5 rounded-md ease-in-out transition-all duration-300"
+          [ngClass]="{ hidden: hamburgerOpen }"
+        ></div>
+        <div
+          class="w-7 shadow shadow-white bg-gray-600 h-0.5 rounded-md origin-center ease-in-out transition duration-300"
+          [ngClass]="{ 'absolute -rotate-45': hamburgerOpen }"
+        ></div>
+      </div>
+      <div
+        class="relative sm:static basis-full font-semibold sm:basis-2/4 flex-grow"
+      >
+        <nav
+          [ngClass]="{ hidden: !hamburgerOpen }"
+          class="absolute w-full z-10 backdrop-blur-md sm:backdrop-blur-none sm:static sm:flex grid gap-2 sm:gap-6 sm:justify-end items-center p-4 md:px-8"
+        >
+          <p
+            routerLink="/"
+            [ngClass]="{ 'text-white': hero, 'text-black': !hero }"
+            class="hover:text-red-600 cursor-pointer"
+          >
+            Home
+          </p>
+          <div
+            [ngClass]="{ 'text-white': hero, 'text-black': !hero }"
+            class="relative overflow-visible"
+          >
+            <span
+              (click)="[aboutUsDropdown.classList.toggle('hidden')]"
+              (mouseenter)="[aboutUsDropdown.classList.toggle('hidden')]"
+              class="group flex cursor-pointer items-center gap-3 group hover:text-red-600"
+              >About Us
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="11"
+                viewBox="0 0 14 11"
+                fill="none"
+                class="-rotate-90 group-hover:rotate-0 ease-in-out transition-all duration-300"
+              >
+                <path
+                  d="M6.11724 10.0009C6.1784 10.0912 6.26024 10.1651 6.3557 10.2161C6.45117 10.2672 6.5574 10.2938 6.66524 10.2938C6.77309 10.2938 6.87932 10.2672 6.97478 10.2161C7.07025 10.1651 7.15208 10.0912 7.21324 10.0009L13.2132 1.18476C13.2827 1.08308 13.3234 0.963975 13.331 0.840396C13.3386 0.716818 13.3127 0.593489 13.2562 0.483811C13.1997 0.374132 13.1148 0.282298 13.0106 0.218287C12.9064 0.154275 12.787 0.120533 12.6652 0.120728H0.665241C0.543803 0.121239 0.4248 0.155414 0.321028 0.219579C0.217256 0.283744 0.132643 0.375471 0.0762868 0.484896C0.0199308 0.594321 -0.00603544 0.717303 0.00118053 0.840617C0.00839651 0.963931 0.0485217 1.08291 0.117241 1.18476L6.11724 10.0009Z"
+                  [ngClass]="{ 'fill-white': hero, 'fill-black': !hero }"
+                  class="group-hover:fill-red-600"
+                />
+              </svg>
+            </span>
+            <div
+              #aboutUsDropdown
+              [ngClass]="{ 'text-white': hero, 'text-black': !hero }"
+              class="hidden sm:absolute p-2 text-sm md:text-base z-10 top-6 w-40 rounded bg-red-600"
+              (mouseleave)="[aboutUsDropdown.classList.add('hidden')]"
+            >
+              <ul class="text-white">
+                <li
+                  routerLink="logistics"
+                  class="cursor-pointer hover:bg-red-800 px-2 rounded mb-2"
+                >
+                  Logistics
+                </li>
+                <li
+                  routerLink="about"
+                  class="cursor-pointer hover:bg-red-800 px-2 rounded mb-2"
+                >
+                  Services
+                </li>
+                <li
+                  routerLink="corporate"
+                  class="cursor-pointer hover:bg-red-800 px-2 rounded mb-2"
+                >
+                  Corporate
+                </li>
+                <li
+                  routerLink="sustain"
+                  class="cursor-pointer hover:bg-red-800 px-2 rounded mb-2"
+                >
+                  Sustainability
+                </li>
+                <li
+                  routerLink="policy"
+                  class="cursor-pointer hover:bg-red-800 px-2 rounded"
+                >
+                  Policy
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p
+            [ngClass]="{ 'text-white': hero, 'text-black': !hero }"
+            class="hover:text-red-600 cursor-pointer"
+          >
+            Career
+          </p>
+          <div>
+            <button
+              routerLink="contact"
+              class="px-4 py-2 rounded-tr-2xl bg-amber-400 hover:bg-amber-600 active:translate-y-2 text-white font-medium"
+            >
+              <small> Contact Us → </small>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <ng-template [ngIf]="hero">
+      <div
+        class="mt-12 sm:mt-14 md:mt-24 sm:w-4/5 md:w-7/12 px-4 sm:px-8 xl:px-0"
+      >
+        <span
+          class="text-3xl sm:text-7xl text-balance font-bold block text-white"
+          >{{ heroTitle[0] }}
+          <span class="text-yellow-600">{{ heroTitle[1] }}</span>
+        </span>
+      </div>
+      <div
+        class="my-3 sm:my-4 sm:max-w-96 text-pretty text-xs sm:text-base font-medium text-gray-400 px-4 sm:px-8 xl:px-0"
+      >
+        We deliver Quality Products to your facilities anytime and anyday
+      </div>
+    </ng-template>
+  </div>
+</div>
+

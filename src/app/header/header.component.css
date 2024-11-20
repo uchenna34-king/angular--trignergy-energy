@@ -1,0 +1,14 @@
+.hamburger {
+    @apply w-8 p-1 me-3 flex flex-col h-7 justify-around sm:hidden relative;
+  }
+  .back {
+    background-image: url("../../assets/etienne.png"),
+      linear-gradient(45deg, #000, transparent);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 2%;
+    /* background-position: top center; */
+  }
+  
+  

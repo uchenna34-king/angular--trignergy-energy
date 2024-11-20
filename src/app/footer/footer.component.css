@@ -1,0 +1,5 @@
+.masked {
+    color:#ffac12;
+    -webkit-mask-image:linear-gradient(to right, black, #00000031);
+    mask-image: linear-gradient(to right, black ,#00000031);
+}
